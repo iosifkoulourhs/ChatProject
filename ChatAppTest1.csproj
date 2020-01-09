@@ -221,6 +221,10 @@
     <Compile Include="Migrations\201912311036035_private chat.Designer.cs">
       <DependentUpon>201912311036035_private chat.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001091455207_Test Git.cs" />
+    <Compile Include="Migrations\202001091455207_Test Git.Designer.cs">
+      <DependentUpon>202001091455207_Test Git.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -329,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912311036035_private chat.resx">
       <DependentUpon>201912311036035_private chat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001091455207_Test Git.resx">
+      <DependentUpon>202001091455207_Test Git.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

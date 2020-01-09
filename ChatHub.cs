@@ -6,7 +6,7 @@ using System.Web;
 using Microsoft.AspNet.SignalR;
 
 namespace ChatAppTest1
-{
+{  //this is a test comment
     public class ChatHub : Hub
     {
         private static string waitingUser;

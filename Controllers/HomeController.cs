@@ -1,12 +1,14 @@
-﻿using System;
+﻿using ChatAppTest1.Models;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
 namespace ChatAppTest1.Controllers
 {
-    
+
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -17,11 +19,13 @@ namespace ChatAppTest1.Controllers
         /// 
         /// </summary>
         /// <returns></returns>
-      
+
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
+            
             return View();
         }
 
@@ -31,6 +35,8 @@ namespace ChatAppTest1.Controllers
 
             return View();
         }
+
+
         [Authorize]
         public ActionResult Chat()
         {

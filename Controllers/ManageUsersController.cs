@@ -16,7 +16,7 @@ namespace ChatAppTest1.Controllers
         {
             context = new ApplicationDbContext();
         }
-
+        [Authorize (Roles = "Administrator")]
         public ActionResult UsersWithRoles()
         {
             var usersWithRoles = (from user in context.Users

@@ -137,21 +137,19 @@ namespace ChatAppTest1.Controllers
             }
         }
 
-        //
-        // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
         {
-            //fyteyto
-            List<IdentityRole> roles = null;
+            var _context = new ApplicationDbContext();
+            //var roles = _context.Roles.ToList();
+            var roles = _context.Roles.Where(role => role.Name != "Administrator").ToList();
 
-            using (ApplicationDbContext db = new ApplicationDbContext())
+            var viewModel = new RegisterViewModel
             {
-                roles = db.Roles.Where(role => role.Name != "Administrator").ToList();
-            }
-            ViewBag.Roles = roles;
-
-            return View();
+                //RolesList = roles 
+                RolesList = roles
+            };
+            return View(viewModel);
         }
 
         //
@@ -166,6 +164,7 @@ namespace ChatAppTest1.Controllers
                 //fyteyto
 
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email};
+                //var user = new ApplicationUser() { UserName = model.}
                 var result = await UserManager.CreateAsync(user, model.Password);
                 string path = "";
 
@@ -181,14 +180,15 @@ namespace ChatAppTest1.Controllers
                       //fyteyto
 
                     user = UserManager.FindByName(model.Email);
-                    await UserManager.AddToRoleAsync(user.Id, model.Gender);//pros8esame to model.Role
+                    await UserManager.AddToRoleAsync(user.Id, model.RoleName);//pros8esame to model.Role
                     //fyteyto oi 2 pano grammes to byer einai ka8e diaforetiko
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
                     var newUser = UserManager.Users
                                    .SingleOrDefault(i => i.UserName == model.Email);
 
-                    UserManager.AddToRole(newUser.Id, "Male");
+                    //UserManager.AddToRole(newUser.Id, "Male");
+                    await UserManager.AddToRoleAsync(user.Id, model.RoleName);
 
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
@@ -202,6 +202,12 @@ namespace ChatAppTest1.Controllers
                 }
                 AddErrors(result);
             }
+
+            var _context = new ApplicationDbContext();
+            var roles = _context.Roles.ToList();
+
+            model.RolesList = roles;
+
 
             // If we got this far, something failed, redisplay form
             return View(model);

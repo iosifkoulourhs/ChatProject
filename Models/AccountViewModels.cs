@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web;
 
@@ -80,8 +81,15 @@ namespace ChatAppTest1.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
-        [Required]
-        public string Gender { get; set; }
+
+       // [Required]
+        //[Display(Name ="Gender")]
+        ///[DataType(DataType.Text)]
+        //public string Gender { get; set; }
+        [Display(Name ="Roles List")]
+        public List<IdentityRole> RolesList { get; set; }
+        [Required(ErrorMessage ="Please Select the Role")]
+        public string RoleName { get; set; }
 
         [Display(Name = "Profile picture")]
         public HttpPostedFileBase ProfilePicture { get; set; }

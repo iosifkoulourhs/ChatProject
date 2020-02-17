@@ -234,6 +234,10 @@
     <Compile Include="Migrations\202001101109202_AdminView.Designer.cs">
       <DependentUpon>202001101109202_AdminView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001151133594_Succesful merge.cs" />
+    <Compile Include="Migrations\202001151133594_Succesful merge.Designer.cs">
+      <DependentUpon>202001151133594_Succesful merge.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -353,6 +357,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001101109202_AdminView.resx">
       <DependentUpon>202001101109202_AdminView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001151133594_Succesful merge.resx">
+      <DependentUpon>202001151133594_Succesful merge.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
